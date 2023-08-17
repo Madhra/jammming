@@ -1,3 +1,8 @@
 .Song{
     border-bottom: 1px solid white;
+    width: 50%;
+}
+
+.Song:hover{
+    cursor: pointer;
 }

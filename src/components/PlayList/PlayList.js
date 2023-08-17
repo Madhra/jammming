@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import TrackList from "../TrackList/TrackList";
 import './PlayList.css';
+import Song from "../Song/Song";
 
-function PlayList() {
+function PlayList( { selectedTracks }) {
     const [value, setValue] = useState('');
 
     const handleChange = ( { target } ) => setValue(target.value);
@@ -20,10 +20,19 @@ function PlayList() {
                 value={value}
                 onChange={handleChange}
             />
-            <TrackList />  {/* Mandar los resultados a TrackList */}
+            {selectedTracks.map(element =>{
+                    const { artist, track, album } = element;
+                    return <Song
+                        track={track}
+                        artist={artist}
+                        album={album}
+                    />
+            })
+            }
             <button type="submit"> 
                 Save to Spotify
             </button>
+
         </form>
     );
 }
