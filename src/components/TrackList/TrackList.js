@@ -1,10 +1,12 @@
 import React from "react";
 import Song from "../Song/Song";
 
-function TrackList(props) {
+function TrackList( { tracks, artists, albums } ) {
     return(
         <div className="TrackList">
-            <Song song=''/> {/* Hacer un map de las canciones recibidas y mostrarlas tanto en Results como en Playlist */}
+            {tracks ? (tracks.map((track, index) => {
+                return <Song track={track} artist={artists[index]} album={albums[index]}/>
+            })) : null}
         </div>
     );
 }

@@ -1,10 +1,10 @@
 import React from "react";
-
-function Song(props) {
+import './Song.css'
+function Song( { artist, track, album } ) {
     return (
         <div className="Song">
-            <h3>{props.song}</h3>{/* Recibe una cancion y retorna un formato con la info de la cancion */}
-            <p>{props.artist}</p>
+            <h3>{track}</h3>
+            <p>{artist} | {album}</p>
         </div>
     );
 }
